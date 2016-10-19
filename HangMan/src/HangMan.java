@@ -1,4 +1,11 @@
-
+/*Hi Guys,
+ * I decided to take lead on the program number 7.35
+ * This is the first draft.
+ * We need to add the following features to our program.
+ * 1. Counting the missed letters.
+ * 2. Add more words.
+ * 3. Maybe provide some hints for the word 
+ */
 public class HangMan {
 	public static void main(String[]args){
 		java.util.Scanner input = new java.util.Scanner(System.in);
@@ -11,6 +18,7 @@ public class HangMan {
 			String [] words = {"doctor", "pilot", "engineer", "teacher"};
 			Gist=words[(int)(Math.random()*words.length)];
 			System.out.println(Gist);
+			// I added this statement just for debugging purpose.
 			char [] letters = new char [Gist.length()];
 			for (int i=0; i< Gist.length(); i++){
 				letters[i]= Gist.charAt(i);
