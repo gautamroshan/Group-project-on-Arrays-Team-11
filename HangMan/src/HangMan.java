@@ -45,8 +45,5 @@ public class HangMan {
 	}
 
 }
-	public static String toshow(String gist){
-		String value="";
-		return value;
-}
+	
 }
