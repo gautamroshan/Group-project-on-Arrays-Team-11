@@ -1,10 +1,9 @@
 /*Hi Guys,
  * I decided to take lead on the program number 7.35
- * This is the first draft.
  * We need to add the following features to our program.
  * 1. Counting the missed letters.
- * 2. Add more words.
- * 3. Maybe provide some hints for the word 
+ * 2. Putting an end to the game with some message or option for playing again
+ * 3. Maybe provide some hints for the words 
  */
 import java.io.*;
 import java.util.Random;
