@@ -7,6 +7,8 @@ public class Card_Game_7_29 {
 	public static void main(String[] args) {
 		//Hello
 	System.out.println("Hello");
+	System.out.println("I've got a game for you");
+	
 
 	}
 
