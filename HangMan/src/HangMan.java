@@ -1,24 +1,36 @@
 /*Hi Guys,
  *Please add a method or edit the code for giving number of chances and counting them.
+ *Still needs to be worked to make case insensative.
  */
 import java.io.*;
+// importing the io class from java API to read input from file
 import java.util.Random;
+// importing the Random class to generate random object.
 import java.util.ArrayList;
+// importing ArrayList to store multiple string objects
 import java.util.Scanner;
+// importing scanner object for file and user input.
 public class HangMan {
 	public static void main(String[]args){
 		File WORDS = new File("Hangman_Words.txt");
+		// using a file type 'WORDS' to store 'Hangman_Words.txt' 
 		ArrayList<String> words = new ArrayList<String>();
+		// defining a Arraylist 'words' to store multiple words
 		String word;
 		Random random=new Random();
+		// defining a random object 'random'
 		try{
+			// try and catch used for displaying the error properly in case the file Hangman_Words.txt is not found
 			Scanner inputfile = new Scanner(WORDS);
+			// using the Scanner object 'inputfile' to take input from the file
 		while (inputfile.hasNextLine()){
 			word = inputfile.nextLine();
 			words.add(word);
+			// method for adding new words in the Arraylist
 		}
 		}
 		catch (Exception e)
+		//for displaying potential error.
 		{
 			System.out.println("The input file not found" + e.toString());
 		}
@@ -35,13 +47,16 @@ public class HangMan {
 		String Gist=refresh;
 		while (command == 1){
 			Gist = words.get(random.nextInt(words.size()));
+			//using random method defined above to produce random word from WORDS
 			System.out.println(Gist);
 			// I added this statement just for debugging purpose.
 			char [] letters = Gist.toCharArray();
+			// using array of char type defined by toCharArray method for storing characters from Gist, which is our word.
 			String tempGist=refresh;
 			for (int j=0; j<Gist.length(); j++){
 				tempGist=tempGist + "*";
 			}
+			// for displaying '*' version of word
 				String OldGist = tempGist;
 				while(tempGist!=Gist){
 			System.out.println("Enter a letter in word: " + tempGist);
@@ -61,6 +76,7 @@ public class HangMan {
 				System.out.println(Gist);
 				System.out.println("You got it right!");
 				break;
+				//breaks the loop when the word is completed.
 			}
 	}
 				System.out.println("please enter (1) to continue to next word or (0) to exit");
