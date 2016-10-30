@@ -1,29 +1,32 @@
-/*Hi Guys,
- * I decided to take lead on the program number 7.35
- * This is the first draft.
- * We need to add the following features to our program.
- * 1. Counting the missed letters.
- * 2. Add more words.
- * 3. Maybe provide some hints for the word 
- */
 import java.io.*;
+// importing the io class from java API to read input from file
 import java.util.Random;
+// importing the Random class to generate random object.
 import java.util.ArrayList;
+// importing ArrayList to store multiple string objects
 import java.util.Scanner;
+// importing scanner object for file and user input.
 public class HangMan {
 	public static void main(String[]args){
 		File WORDS = new File("Hangman_Words.txt");
+		// using a file type 'WORDS' to store 'Hangman_Words.txt' 
 		ArrayList<String> words = new ArrayList<String>();
+		// defining a Arraylist 'words' to store multiple words
 		String word;
 		Random random=new Random();
+		// defining a random object 'random'
 		try{
+			// try and catch used for displaying the error properly in case the file Hangman_Words.txt is not found
 			Scanner inputfile = new Scanner(WORDS);
+			// using the Scanner object 'inputfile' to take input from the file
 		while (inputfile.hasNextLine()){
 			word = inputfile.nextLine();
 			words.add(word);
+			// method for adding new words in the Arraylist
 		}
 		}
 		catch (Exception e)
+		//for displaying potential error.
 		{
 			System.out.println("The input file not found" + e.toString());
 		}
@@ -32,40 +35,59 @@ public class HangMan {
 		System.out.println("Welcome to hangman!");
 		System.out.println("Please enter (1) to Start the game or (0) to exit");
 		int command = input.nextInt();
+		if (command==0){
+			System.out.println("Thank you! Please visit again!");
+			System.exit(0);
+		}
 		String refresh="";
 		String Gist=refresh;
 		while (command == 1){
 			Gist = words.get(random.nextInt(words.size()));
+			//using random method defined above to produce random word from WORDS
 			System.out.println(Gist);
 			// I added this statement just for debugging purpose.
-			char [] letters = new char [Gist.length()];
-			for (int i=0; i< Gist.length(); i++){
-				letters[i]= Gist.charAt(i);
-			}
+			char [] letters = Gist.toCharArray();
+			// using array of char type defined by toCharArray method for storing characters from Gist, which is our word.
 			String tempGist=refresh;
 			for (int j=0; j<Gist.length(); j++){
 				tempGist=tempGist + "*";
 			}
-			while (tempGist != Gist){
+			// for displaying '*' version of word
 				String OldGist = tempGist;
+				while(tempGist!=Gist){
 			System.out.println("Enter a letter in word: " + tempGist);
-			char deko=input.next().charAt(0);
+			char letter=input.next().charAt(0);
+			String Sletter=letter+"";
 			tempGist=refresh;
 			for (int k=0; k<Gist.length(); k++ ){
-				if (deko == letters[k]){
-					tempGist= tempGist + deko;
+				String StringFromWord=letters[k]+"";
+				if (StringFromWord.equalsIgnoreCase(Sletter)){
+					tempGist+= letters[k];
 				}
 				else {
 					tempGist= tempGist + OldGist.charAt(k);
 					
 				}
 			}
-			System.out.println(tempGist);
+			OldGist=tempGist;
+			if (OldGist.matches(Gist)){
+				System.out.println(Gist);
+				System.out.println("You got it right!");
+				break;
+				//breaks the loop when the word is completed.
+			}
 	}
-		System.out.println("please enter (1) to continue to next word or (0) to exit");
-		command = input.nextInt();
-	}
+				System.out.println("please enter (1) to continue to next word or (0) to exit");
+				command = input.nextInt();
+				if (command==0){
+					System.out.println("Thank you! Please visit again!");
+					System.exit(0);
+					
+				}
+		}
 
-}
 	
+		
+	
+	}
 }

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.io.*;
+public class Test {
+	public static void main(String[]args){
+		Scanner input = new Scanner(System.in);
+		File output = new File("words.txt");
+		String name;
+		System.out.print("Enter the first customer name: ");
+		name = input.nextLine();
+		try {
+			PrintWriter out = new PrintWriter(output);
+			while (name.equalsIgnoreCase("done")==false){
+			out.println(name);
+			System.out.println("Enter the next name or \"done\" to exit.");
+			name = input.nextLine();
+		}
+		out.close();
+	} catch (Exception e)
+	{
+		System.out.println("Error!" +e.toString());
+	
+	}
+	}
+}
