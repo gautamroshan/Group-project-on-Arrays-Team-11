@@ -41,9 +41,9 @@ public class HangMan {
 		}
 		String refresh="";
 		String Gist=refresh;
-		System.out.println("You have 10 chances to guess!");
+		System.out.println("You have 5 chances to guess!");
 		while (command == 1){
-			int counter=10;
+			int counter=5;
 			Gist = words.get(random.nextInt(words.size()));
 			//using random method defined above to produce random word from WORDS
 			char [] letters = Gist.toCharArray();
@@ -82,7 +82,6 @@ public class HangMan {
 				else System.out.println("You missed the word, it was "+ Gist);
 				System.out.println("please enter (1) to continue to next word or (0) to exit");
 				command = input.nextInt();
-				
 				if (command==0){
 					System.out.println("Thank you! Please visit again!");
 					System.exit(0);
