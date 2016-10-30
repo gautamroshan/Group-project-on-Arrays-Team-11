@@ -75,28 +75,14 @@ public class Card_Game_7_29 {
     }
     System.out.println("Sum of picked cards is : "+sum);
 
-    //Stop at 24. Still in progress.
-	int sum1 = 0;
-    int cardCount = 0;
-    String[] cards = new String[4];
+    int count = 0;
+if (sum==24)
 
-    while (sum1 != 24 || cardCount != 4) {
+    count++;
+    System.out.println("The number of times the cards sum is 24 is: " + count);
 
-        if (sum1 > 24 || cardCount > 3) {
-            cardCount = 0;
-            sum1 = 0;
-            
-            	
-            }
-        if (sum1==24){
-        	System.out.println("done");
-        	
-        }
-            	
-            }
-   
-    	
+        }   	
 }
-}
+
 
 
