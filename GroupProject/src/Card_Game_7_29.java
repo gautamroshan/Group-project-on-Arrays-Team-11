@@ -7,7 +7,7 @@ public class Card_Game_7_29 {
 //This makes stuff work. It's magical
     public static void main(String[] args){
 
-        //Do NOT mess with this integer. It will go wonky and make you cry
+    	//Do NOT mess with this integer. It will go wonky and make you cry
         int[] deck = new int[52];
         //Suits
         String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
@@ -69,12 +69,34 @@ public class Card_Game_7_29 {
         } 
         else {
             sum = sum+Integer.parseInt(rank);
+
+           
         }
     }
     System.out.println("Sum of picked cards is : "+sum);
-    
-   if (sum==24);
+
+    //Stop at 24. Still in progress.
+	int sum1 = 0;
+    int cardCount = 0;
+    String[] cards = new String[4];
+
+    while (sum1 != 24 || cardCount != 4) {
+
+        if (sum1 > 24 || cardCount > 3) {
+            cardCount = 0;
+            sum1 = 0;
+            
+            	
+            }
+        if (sum1==24){
+        	System.out.println("done");
+        	
+        }
+            	
+            }
    
     	
 }
 }
+
+
