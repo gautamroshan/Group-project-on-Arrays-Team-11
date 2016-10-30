@@ -12,6 +12,8 @@ import java.util.Scanner;
 // importing scanner object for file and user input.
 public class HangMan {
 	public static void main(String[]args){
+		//////This .txt file won't work. If the file isn't on the computer, I can't actually play the game. 
+	    ////// Will the  file be included in the document? -Jessica
 		File WORDS = new File("Hangman_Words.txt");
 		// using a file type 'WORDS' to store 'Hangman_Words.txt' 
 		ArrayList<String> words = new ArrayList<String>();
