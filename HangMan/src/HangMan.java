@@ -12,6 +12,7 @@ import java.util.Scanner;
 // importing scanner object for file and user input.
 public class HangMan {
 	public static void main(String[]args){
+		////This file isn't present on all computers so the game won't run --Jessica
 		File WORDS = new File("Hangman_Words.txt");
 		// using a file type 'WORDS' to store 'Hangman_Words.txt' 
 		ArrayList<String> words = new ArrayList<String>();
@@ -84,7 +85,16 @@ public class HangMan {
 				if (command==0){
 					System.out.println("Thank you! Please visit again!");
 					System.exit(0);
+					
 				}
+		}
+		public static void cenamiMethod(String[]cenami){
+			//Jessica's method
+			System.out.println("Hello group. This is my method."
+					+ "Isn't it lovely.");
+			
+			
+			
 		}
 	}
 }
