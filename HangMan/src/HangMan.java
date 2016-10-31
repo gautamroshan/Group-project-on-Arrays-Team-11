@@ -1,7 +1,3 @@
-/*Hi Guys,
- *Please add a method or edit the code for giving number of chances and counting them.
- *Still needs to be worked to make case insensative.
- */
 import java.io.*;
 // importing the io class from java API to read input from file
 import java.util.Random;
@@ -46,10 +42,9 @@ public class HangMan {
 		String refresh="";
 		String Gist=refresh;
 		while (command == 1){
+			int counter=10;
 			Gist = words.get(random.nextInt(words.size()));
 			//using random method defined above to produce random word from WORDS
-			System.out.println(Gist);
-			// I added this statement just for debugging purpose.
 			char [] letters = Gist.toCharArray();
 			// using array of char type defined by toCharArray method for storing characters from Gist, which is our word.
 			String tempGist=refresh;
@@ -58,33 +53,44 @@ public class HangMan {
 			}
 			// for displaying '*' version of word
 				String OldGist = tempGist;
-				while(tempGist!=Gist){
-			System.out.println("Enter a letter in word: " + tempGist);
-			char deko=input.next().charAt(0);
-			tempGist=refresh;
-			for (int k=0; k<Gist.length(); k++ ){
-				if (deko == letters[k]){
-					tempGist+= deko;
-				}
-				else {
-					tempGist= tempGist + OldGist.charAt(k);
+				while(!OldGist.equals(Gist)){
+					System.out.println("Enter a letter in word: " + tempGist);
+					System.out.println("You have "+counter+" chances to guess!");
+					char letter=input.next().charAt(0);
+					String Userletter=letter+"";
+					tempGist=refresh;
+						for (int k=0; k<Gist.length(); k++ ){
+							String LetterFromGist=letters[k]+"";
+								if (LetterFromGist.equalsIgnoreCase(Userletter)){
+								tempGist+= letters[k];
+								}
+								else {
+								tempGist= tempGist + OldGist.charAt(k);
 					
+								}
+						}
+						if(OldGist.equals(tempGist)){
+							counter--;
+							if (counter==0) break;
+						}
+						OldGist=tempGist;
+			
 				}
-			}
-			OldGist=tempGist;
-			if (OldGist.matches(Gist)){
-				System.out.println(Gist);
-				System.out.println("You got it right!");
-				break;
-				//breaks the loop when the word is completed.
-			}
-	}
+				if(OldGist.equals(Gist))
+					System.out.println("You got it right");
+				else System.out.println("You missed the word, it was "+ Gist);
 				System.out.println("please enter (1) to continue to next word or (0) to exit");
 				command = input.nextInt();
+				
 				if (command==0){
 					System.out.println("Thank you! Please visit again!");
 					System.exit(0);
+					
 				}
 		}
+
+	
+		
+	
 	}
 }
