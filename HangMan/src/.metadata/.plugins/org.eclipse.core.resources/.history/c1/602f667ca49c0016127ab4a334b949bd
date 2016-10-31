@@ -1,0 +1,57 @@
+// BOolean to check if tempGist has * or not.
+public class Test {
+	public static void main(String[]args){
+		java.util.Scanner input = new java.util.Scanner(System.in);
+		System.out.println("Welcome to hangman!");
+		System.out.println("Please enter (1) to Start the game or (0) to exit");
+		int command = input.nextInt();
+		if (command==0){
+			System.out.println("Thank you! Please visit again!");
+			System.exit(0);
+		}
+		String refresh="";
+		String Gist=refresh;
+		while (command == 1){
+			String [] words = {"doctor", "pilot", "engineer", "teacher"};
+			Gist=words[(int)(Math.random()*words.length)];
+			System.out.println(Gist);
+			char [] letters = Gist.toCharArray();
+			String tempGist=refresh;
+			for (int j=0; j<Gist.length(); j++){
+				tempGist=tempGist + "*";
+			}
+			String OldGist=tempGist;
+			while(tempGist!=Gist){
+				
+			System.out.println("Enter a letter in word:" + tempGist);
+			char deko=input.next().charAt(0);
+			tempGist=refresh;
+			for (int k=0; k<Gist.length(); k++ ){
+				if (deko == letters[k]){
+					tempGist+= deko;
+				}
+				else {
+					tempGist+= OldGist.charAt(k);
+				}
+			}
+			OldGist=tempGist;
+			if (OldGist.matches(Gist)){
+				System.out.print(Gist);
+				System.out.println("You got it right!");
+				break;
+			}
+			
+			}
+		System.out.println("please enter (1) to continue to next word or (0) to exit");
+		command = input.nextInt();
+		if (command==0){
+			System.out.println("Thank you! Please visit again!");
+			System.exit(0);
+		}
+	}
+
+
+	
+}
+}
+
